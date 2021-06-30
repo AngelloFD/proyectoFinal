@@ -1,19 +1,30 @@
-# * Aqui ira toda la logica del juego * #
-import random
+# * Aqui iria toda la logica del juego * #
+import random   # import es para adquirir funciones de distintas librerias que vienen con Python
 import sys
+import os
 import time
 
-
+# *
+# Una funcion es un pedazo de código que puede ser reutilizado varias veces
+# También puede llevar parámetros que siempre estarán dentro de los parentesis y representan
+# alguna variable a pasar en cierto punto del código
+# En Python, se utiliza def para inicializar una funcion y para llamarla se pone el nombre junto
+# con los parámetros dentro del parentesis
+# * #
 def eleccion_invalida(eleccion):
     print("Tus pensamientos se nublan y sientes que eres forzado a elegir")
     time.sleep(2)
     eleccion = random.choice(["A", "B", "C"])
+    # return indica el final de una fuyncion se utiliza cuando una función va a devolver un valor
     return eleccion
 
 
 print("Algo te seguía. No dejabas de ver sobre tus hombros, no era humano ni algún animal que hallas visto.\n"
       "De pronto, sientes un vacío debajo de tu pie derecho para luego enterarte que caías dentro de una hoyo.")
+
+# time.sleep retrasa el programa por los segundos puestos entre parentesis
 time.sleep(2)
+
 print(
     "Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza. "
     "Lo siguiente que recuerdas es levantarte en medio de la oscuridad, con frío...")
@@ -28,7 +39,7 @@ if empezar_g != 's':
     print("                     |  ^-----___-----^  |                    ")
     print()
     print()
-    time.sleep(2)
+    time.sleep(3)
     sys.exit()
 else:
     print("¿Qué harías?\nA - Ver alrededor\nB - Observarte\nC - Hay algo sobre mi espalda...")
@@ -56,6 +67,7 @@ else:
 
 print("Tu sentidos vuelven a la realidad al escuchar un fuerte eco desde lo profundo de la oscuridad.")
 print("Tu estomago se retuerce y algo te dice que no deberías estar ahi")
+
 if elecc == "C":
     print("¿Qué harías?\nA - Empezar a moverte\nB - Esconderte\nC - Buscar dentro de la mochila")
 else:

@@ -19,6 +19,15 @@ def eleccion_invalida(eleccion):
     return eleccion
 
 
+def elecciones(elA, elB, elC):
+    print("¿Qué harías?")
+    print("A - ", elA)
+    print("B - ", elB)
+    print("C - ", elC)
+    respuesta = input("Tu elección: ").upper()
+    return respuesta
+
+
 print("Algo te seguía. No dejabas de ver sobre tus hombros, no era humano ni algún animal que hallas visto.\n"
       "De pronto, sientes un vacío debajo de tu pie derecho para luego enterarte que caías dentro de una hoyo.")
 
@@ -29,8 +38,8 @@ print(
     "Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza. "
     "Lo siguiente que recuerdas es levantarte en medio de la oscuridad, con frío...")
 
-empezar_g = input("¿Desea continuar? (n/s): ").lower()
-if empezar_g != 's':
+empezar_g = input("¿Desea continuar? (N/S): ").upper()
+if empezar_g != 'S':
     print("El frio te inmoviliza, hiela tus piernas y esperas el final con una ultima vista a la oscuridad")
     print()
     print()
@@ -42,8 +51,8 @@ if empezar_g != 's':
     time.sleep(3)
     sys.exit()
 else:
-    print("¿Qué harías?\nA - Ver alrededor\nB - Observarte\nC - Hay algo sobre mi espalda...")
-    elecc = ""
+    #print("¿Qué harías?\nA - Ver alrededor\nB - Observarte\nC - Hay algo sobre mi espalda...")
+    elecc = elecciones("Ver alrededor", "Observarte", "Hay algo sobre mi espalda...")
     inv = 0
     while elecc != "A" and elecc != "B" and elecc != "C":
         elecc = input("Elige una acción: ").upper()
@@ -62,13 +71,41 @@ else:
               "Tus piernas están algo heridas.\nTu cabeza recién se esta recuperando de la cada.")
         time.sleep(1)
     elif elecc == "C":
-        print("Es pesado y parece estar sostenido por tus hombros.\n Es una mochila y parece estar medio llena.")
+        print("Es pesado y parece estar sostenido por tus hombros.\nEs una mochila y parece estar medio llena.")
         time.sleep(1)
 
 print("Tu sentidos vuelven a la realidad al escuchar un fuerte eco desde lo profundo de la oscuridad.")
 print("Tu estomago se retuerce y algo te dice que no deberías estar ahi")
 
 if elecc == "C":
-    print("¿Qué harías?\nA - Empezar a moverte\nB - Esconderte\nC - Buscar dentro de la mochila")
+    elecc = elecciones("Empezar a moverte", "Esconderte", "Buscar dentro de la mochila")
+    #print("¿Qué harías?\nA - Empezar a moverte\nB - Esconderte\nC - Buscar dentro de la mochila")
+    inv = 0
+    while elecc != "A" and elecc != "B" and elecc != "C":
+        elecc = input("Elige una acción: ").upper()
+        inv += 1
+        if inv == 3:
+            elecc = eleccion_invalida(elecc)
+    if elecc == "A":
+        print("Mochila + A")
+    elif elecc == "B":
+        print("Mochila + B")
+    elif elecc == "C":
+        print("Mochila + C")
 else:
-    print("¿Qué harías?\nA - Empezar a moverte\nB - Esconderte\nC - Crear una distracción")
+    elecc = elecciones("Empezar a moverte", "Esconderte", "Crear una distracción")
+    inv = 0
+    while elecc != "A" and elecc != "B" and elecc != "C":
+        elecc = input("Elige una acción: ").upper()
+        inv += 1
+        if inv == 3:
+            elecc = eleccion_invalida(elecc)
+    if elecc == "A":
+        print("A")
+    elif elecc == "B":
+        print("B")
+    elif elecc == "C":
+        print("C")
+    #print("¿Qué harías?\nA - Empezar a moverte\nB - Esconderte\nC - Crear una distracción")
+
+

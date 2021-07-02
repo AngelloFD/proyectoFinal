@@ -25,7 +25,7 @@ print("Algo te seguía. No dejabas de ver sobre tus hombros, no era humano ni al
 time.sleep(2)
 
 print(
-    "Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza. "
+    "Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza.\n"
     "Lo siguiente que recuerdas es levantarte en medio de la oscuridad, con frío...")
 
 empezar_g = input("¿Desea continuar? (N/S): ").upper()
@@ -40,6 +40,7 @@ if empezar_g != 'S':
     time.sleep(3)
     sys.exit()
 else:
+    mochilaVia = False
     elecc = elecciones("Ver alrededor", "Observarte", "Hay algo sobre mi espalda...")
     inv = 0
     while elecc != "A" and elecc != "B" and elecc != "C":
@@ -52,8 +53,8 @@ else:
     time.sleep(1)
     if elecc == "A":
         print("Miras a tu alrededor y solo vez oscuridad.\n"
-              "El suelo en donde caíste era duro y accidentado.\n")
-        print("No hay alguna luz más de la que cae de la luna a travez del hueco de donde caíste.")
+              "El suelo en donde caíste era duro y accidentado.")
+        print("No hay alguna luz más que la que cae de la luna a travez del hueco de donde caíste.")
         print()
         time.sleep(1)
     elif elecc == "B":
@@ -67,7 +68,7 @@ else:
         print()
         time.sleep(1)
 
-print("Tu sentidos vuelven a la realidad al escuchar un fuerte eco desde lo profundo de la oscuridad.")
+print("Tu sentidos vuelven en sí al escuchar un fuerte eco desde lo profundo de la oscuridad.")
 print("Tu estomago se retuerce, algo te dice que no deberías estar ahi")
 print()
 
@@ -87,4 +88,5 @@ while elecc != "A" and elecc != "B" and elecc != "C":
 print("Tu elección fue: ", elecc, "\n")
 time.sleep(1)
 if elecc == "A":
-    print("Decides no esperar más y te pones de pie, trotando en la dirección opuesta a los sonidos y tropezando con las rocas que sobresalían del suelo")
+    print("Decides no esperar más y te pones de pie, trotando en la dirección opuesta a los sonidos y"
+    " tropezando con las rocas que sobresalían del suelo")

@@ -1,7 +1,6 @@
 # * Aqui iria toda la logica del juego * #
 import random   # import es para adquirir funciones de distintas librerias que vienen con Python
 import sys
-import os
 import time
 
 # *

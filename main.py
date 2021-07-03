@@ -3,6 +3,15 @@ import random
 import sys
 import time
 
+def printMostrito():
+    print()
+    print()
+    print("                     | ☼               ☼ |                    ")
+    print("                     |  ^-----___-----^  |                    ")
+    print()
+    print()
+
+
 def eleccion_invalida(eleccion):
     print("Tus pensamientos se nublan y sientes que eres forzado a elegir")
     time.sleep(2)
@@ -31,12 +40,7 @@ print(
 empezar_g = input("¿Desea continuar? (N/S): ").upper()
 if empezar_g != 'S':
     print("El frio te inmoviliza, hiela tus piernas y esperas el final con una ultima vista a la oscuridad")
-    print()
-    print()
-    print("                     | ☼               ☼ |                    ")
-    print("                     |  ^-----___-----^  |                    ")
-    print()
-    print()
+    printMostrito()
     time.sleep(3)
     sys.exit()
 else:
@@ -74,7 +78,7 @@ print()
 
 if mochilaVia:
     elecc = elecciones("Empezar a moverte", "Esconderte", "Buscar dentro de la mochila")
-    mochilaOp = "Buscar desesperadamente dentro de tu mochila"
+    mochilaOp = "Buscar algo con qué distraer o alejar desesperadamente dentro de tu mochila"
 else:
     elecc = elecciones("Empezar a moverte", "Esconderte", "Crear una distracción")
     mochilaOp = ""
@@ -88,5 +92,5 @@ while elecc != "A" and elecc != "B" and elecc != "C":
 print("Tu elección fue: ", elecc, "\n")
 time.sleep(1)
 if elecc == "A":
-    print("Decides no esperar más y te pones de pie, trotando en la dirección opuesta a los sonidos y"
-    " tropezando con las rocas que sobresalían del suelo")
+    print("Decides no esperar más y ponerte de pie, trotando en la dirección opuesta a los sonidos y"
+    " tropezando con las rocas que aparecían de la oscuridad que cada vez se hacia más profunda")

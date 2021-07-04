@@ -44,7 +44,7 @@ def printMenu():
     print("|       [C] - Créditos               |")
     print("|       [X] - Salir                  |")
     print("|                                    |")
-    print("______________________________________")
+    print("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯")
     op = input("Esperando a su input: ").upper()
     while op != "J" and op != "C" and op != "X":
         op = input("Esperando a su input: ").upper()
@@ -72,7 +72,7 @@ def eleccion_invalida(eleccion):
 def dibujarMonstro():
     print()
     print()
-    print("                     /\_________________/\                     ")
+    print("                     /\_________________/\                    ")
     print("                     | ☼               ☼ |                    ")
     print("                     |  ^-----___-----^  |                    ")
     print()
@@ -82,7 +82,8 @@ def elecciones(elA, elB, elC):
     print("¿Qué harías?")
     print("A - ", elA)
     print("B - ", elB)
-    print("C - ", elC)
+    if elC != 0:
+        print("C - ", elC)
     respuesta = input("Tu elección: ").upper()
     return respuesta
 
@@ -124,7 +125,7 @@ else:
         mochilaOp = True
         time.sleep(1)
 
-print("Tu sentidos vuelven a la realidad al escuchar un fuerte eco, un rugido extraño en la oscuridad.")
+print("\nTu sentidos vuelven a la realidad al escuchar un fuerte eco, un rugido extraño en la oscuridad.")
 print("Tu estomago se retuerce y algo te dice que no deberías estar ahi")
 
 if mochilaOp:
@@ -148,10 +149,6 @@ if elecc == "A":
     print("Buscas dentro de la mochila y encuentras medicina, vendas, comida, agua, una pistola y dos cuchillos")
 
 elif elecc == "B":
-    print("Estas en un hoyo y no observas un lugar para esconderte")
-    print("Revisas la mochila en tu espalda")
-    print("Buscas dentro de la mochila y encuentras medicina, vendas, comida, agua, una pistola y dos cuchillos")
-
     print("Aprovechas la altura de algunas rocas sobresalientes del suelo y la oscuridad para ocultarte. Los rugidos se vuelven se acercan a ti..")
     print("Pasan unos momentos de silencio, cierras los ojos y te acoges a lo que venga..")
     time.sleep(5)
@@ -177,11 +174,7 @@ elif elecc == "C" and mochilaOp == False:
 elif mochilaOp and elecc == "C":
     print("Buscas dentro de la mochila y encuentras vendas, una botella de agua, una pistola")
 
-
-
-
-
-elecc = elecciones("Curarte las heridas y alimentarte con la que hay en la mochila", "Usar la pistola y disparar en la dirección de los ruidos", "Guardar silencio y esperar que se vayan los ruidos")
+elecc = elecciones("Curarte las heridas", "Usar la pistola y disparar en la dirección de los ruidos", "Guardar silencio y esperar que se vayan los ruidos")
 inv = 0
 while elecc != "A" and elecc != "B" and elecc != "C":
         elecc = input("Elige una acción: ").upper()
@@ -191,8 +184,8 @@ while elecc != "A" and elecc != "B" and elecc != "C":
 print("Tu elección fue:", elecc)
 time.sleep(1)
 if elecc == "A":
-        print("Estas cuarándote, pero hiciste mucho ruido.Entonces escuchas que los rugidos se acercan a ti")
-        print(" Tratas de correr, pero sientes un mordisco en la pierna y otro en la espalda, gritas")
+        print("Las vendas cubren tus heridas pero no creo que halla sido un buen momento para esto.. Escuchas que los rugidos se acercan a ti")
+        print("Tratas de correr, pero sientes un mordisco en la pierna y otro en la espalda, gritas por ayuda..")
         print("Sientes cómo se ta va la vida a mordiscos...")
         dibujarMonstro()
         time.sleep(1)
@@ -200,19 +193,75 @@ if elecc == "A":
 
 elif elecc == "B":
         print("Disparas en dirección de los ruidos pero por la oscuridad, no sabes donde disparar..")
-
-        # for i=
-
-        print("Te sientes aliviado de deshacerte de esa criatura")
-        print("Pero hiciste mucho ruido con el arma, más rugidos se acercan a ti...")
-        print(" Tratas de correr disparando, pero sientes un mordisco en la pierna y otro en la espalda y gritas")
-        print("Sientes cómo se ta va la vida a mordiscos...")
-        dibujarMonstro()
-        time.sleep(1)
-        sys.exit()
+        chance = random.randint(0,1)
+        if chance == 0:
+            print("Oyes distantes alaridos de dolor..")
+            print("Te sientes aliviado de haberte desecho de esa criatura")
+            time.sleep(2)
+            print("Pero hiciste mucho ruido con el arma, más rugidos se acercan a ti...")
+            print("Tratas de correr disparando, pero sientes un mordisco en la pierna y otro en la espalda, gritas por ayuda..")
+            time.sleep(1)
+            print("Sientes cómo se ta va la vida a mordiscos...")
+            dibujarMonstro()
+            time.sleep(1)
+            sys.exit()
+        else:
+            print("Oyes distantes alaridos de dolor..")
+            print("Te sientes aliviado de haberte desecho de esa criatura")
+        
 elif elecc == "C":
         print("Eres paciente y esperas a que se vayan los ruidos")
         print("Entonces después de unos minutos estas sumergido en un profundo y agradable silencio sin rugidos estremecedores")  
 
-print("Ahora sería un buen momento para encontrar una salida. ")
+print("\nAhora sería un buen momento para encontrar una salida.\nPero ¿A dónde ir? Solo hay dos caminos disponibles y por uno de ellos se fue la criatura..")
+elecc = elecciones("Ir a la derecha", "Ir a la izquierda",0)
+inv = 0
+while elecc != "A" and elecc != "B":
+    elecc = input("Elige una acción: ").upper()
+    inv += 1
+    if inv == 3:
+        elecc = eleccion_invalida(elecc)
+print("Tu elección fue:", elecc)
+time.sleep(1)
+chance = random.randint(0,1)
+if chance == 0:
+    print("Empiezas a caminar por esa dirección pero te ves interrumpido al tropezar sobre algo")
+    time.sleep(1)
+    print("Eso empieza a chillar, un chillido que resuena en las paredes de la cueva")
+    time.sleep(1)
+    print("Grandes pasos se escuchan por tu detrás, corriendo a gran velocidad..")
+    time.sleep(1)
+    print("Tratas de correr, pero sientes un mordisco en la pierna y otro en la espalda, gritas por ayuda..")
+    time.sleep(1)
+    print("Sientes cómo la vida se te escapa a mordiscos...")
+    dibujarMonstro()
+    sys.exit()
+else:
+    print("Empiezas a caminar por esa dirección, es un largo camino pero logras ver una luz al final del camino")
+    time.sleep(2)
 
+elecc = elecciones("Correr", "Caminar",0)
+while elecc != "A" and elecc != "B":
+    elecc = input("Elige una acción: ").upper()
+    inv += 1
+    if inv == 3:
+        elecc = eleccion_invalida(elecc)
+print("Tu elección fue:", elecc)
+time.sleep(1)
+if elecc == "A":
+    print("Tomas tus ultimas fuerzas y corres lo más rápido posible hacia la salida..")
+    time.sleep(3)
+    print("Logras salir de la cueva pero miras detrás de tu hombro y vez que esas cosas te siguen ahora..")
+    time.sleep(1)
+    print("La persecución continua..")
+    print("\n                   BAD ENDING\n                   Gracias por jugar!")
+    time.sleep(2)
+    sys.exit()
+elif elecc == "B":
+    print("Te tomas tu tiempo, tratas de calmarte y sigues caminando..")
+    time.sleep(3)
+    print("Logras salir de la cueva sin más problemas, ni nada siguiendote.. Al fin, consigues la paz que necesitas")
+    time.sleep(1)
+    print("\n                   GOOD ENDING\n                   Gracias por jugar!")
+    time.sleep(2)
+    sys.exit()

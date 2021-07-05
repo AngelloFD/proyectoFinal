@@ -1,10 +1,11 @@
-# * Aqui ira toda la logica del juego * #
+# * import se utiliza para habilitar el uso de funciones de ciertas librerias que vienen con Python 
+#  * #
 import random
 import sys
 import time
 import os
-# * MENU * #
 
+# * CODIGO DEL MENU * #
 def creditos():
     print("Juego hecho gracias a todo el equipo 5 y cada uno de sus integrantes")
     time.sleep(1)
@@ -31,7 +32,7 @@ def creditos():
     print("Volviendo al menú..")
     time.sleep(5)
 
-def printMenu():
+def printMenu(): 
     print("______________________________________")
     print("|                                    |")
     print("|                                    |")
@@ -46,7 +47,7 @@ def printMenu():
     print("|                                    |")
     print("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯")
     op = input("Esperando a su input: ").upper()
-    while op != "J" and op != "C" and op != "X":
+    while op != "J" and op != "C" and op != "X":    # * Mientras que op no sea J y C y X se seguirá requiriendo el input del usuario * #
         op = input("Esperando a su input: ").upper()
     if op == "J":
         print("\nPreparando la aventura...")
@@ -94,7 +95,7 @@ print("Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza. "
     "Lo siguiente que recuerdas es levantarte en medio de la oscuridad, con frío...")
 
 empezar_g = input("¿Desea continuar? (N/S): ").upper()
-mochilaOp = False
+mochilaOp = False   #* Declarando mochilaOp falso para más adelante alterar el diálogo de acuerdo a una opción elegida *#
 if empezar_g != 'S':
     print("El frio te inmoviliza, hiela tus piernas y esperas el final con una última vista a la oscuridad")
     dibujarMonstro()
@@ -112,7 +113,7 @@ else:
     time.sleep(1)
     if elecc == "A":
         print("Miras a tu alrededor y solo vez oscuridad.\n"
-              "El suelo en donde caíste era duro y accidentado.\n")
+              "El suelo en donde caíste era duro y accidentado.")
         print("No hay alguna luz más de la que cae de la luna a través del hueco de donde caíste.")
         time.sleep(1)
     elif elecc == "B":
@@ -131,7 +132,7 @@ print("Tu estomago se retuerce y algo te dice que no deberías estar ahi")
 if mochilaOp:
     elecc = elecciones("Empezar a moverte", "Esconderte", "Buscar dentro de la mochila")
 else:
-    elecc = elecc = elecciones("Empezar a moverte", "Esconderte", "Tratar de salir del hoyo")
+    elecc = elecciones("Empezar a moverte", "Esconderte", "Tratar de salir del hoyo")
 
 inv = 0
 while elecc != "A" and elecc != "B" and elecc != "C":
@@ -144,9 +145,15 @@ print("Tu elección fue:", elecc)
 time.sleep(1)
 
 if elecc == "A":
-    print("Quieres moverte, pero tus piernas estan heridas y sientes un pequeño mareo")
-    print("Revisas la mochila en tu espalda")
-    print("Buscas dentro de la mochila y encuentras medicina, vendas, comida, agua, una pistola y dos cuchillos")
+    print("Quieres moverte, pero tus piernas estan heridas y todavía tienes mareos de la caída")
+    print("Decides seguir luchando y logras ponerte de pie, caminando lentamente lejos de los sonidos de lo que sea que esté viniendo")
+    time.sleep(3)
+    print("¿Fuiste lo suficientemente rápido para salir del camino de la bestia?")
+    time.sleep(1)
+    print("El respiro detrás de tu cuello te dice que no.. Solo te queda cerrar los ojos y aceptar lo que viene después..")
+    time.sleep(1)
+    dibujarMonstro()
+    sys.exit()
 
 elif elecc == "B":
     print("Aprovechas la altura de algunas rocas sobresalientes del suelo y la oscuridad para ocultarte. Los rugidos se vuelven se acercan a ti..")

@@ -6,6 +6,7 @@ import time
 import os
 
 # * CODIGO DEL MENU * #
+# * Funciones a usar * #
 def creditos():
     print("Juego hecho gracias a todo el equipo 5 y cada uno de sus integrantes")
     time.sleep(1)
@@ -32,6 +33,7 @@ def creditos():
     print("Volviendo al menú..")
     time.sleep(5)
 
+# * Menu * #
 def printMenu(): 
     print("______________________________________")
     print("|                                    |")
@@ -47,12 +49,12 @@ def printMenu():
     print("|                                    |")
     print("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯")
     op = input("Esperando a su input: ").upper()
-    while op != "J" and op != "C" and op != "X":    # * Mientras que op no sea J y C y X se seguirá requiriendo el input del usuario * #
+    while op != "J" and op != "C" and op != "X":    # Mientras que op no sea J y C y X se seguirá requiriendo el input del usuario
         op = input("Esperando a su input: ").upper()
     if op == "J":
         print("\nPreparando la aventura...")
         time.sleep(5)
-        os.system("cls")
+        os.system("cls")    # Hace que se limpie la consola
     elif op == "C":
         creditos()
         os.system("cls")
@@ -63,7 +65,8 @@ def printMenu():
         sys.exit()
 printMenu()
 
-# * LOGICA DEL JUEGO * #
+# * CODIGO DEL JUEGO * #
+# * Funciones a usar * #
 def eleccion_invalida(eleccion):
     print("Tus pensamientos se nublan y sientes que eres forzado a elegir")
     time.sleep(2)
@@ -88,6 +91,7 @@ def elecciones(elA, elB, elC):
     respuesta = input("Tu elección: ").upper()
     return respuesta
 
+# * Juego * #
 print("Algo te seguía. No dejabas de ver sobre tus hombros, no era humano ni algún animal que hallas visto.\n"
       "De pronto, sientes un vacío debajo de tu pie derecho para luego enterarte que caías dentro de una hoyo.")
 time.sleep(2)
@@ -95,7 +99,8 @@ print("Cierras los ojos al sentir el impacto sobre todo tu cuerpo y tu cabeza. "
     "Lo siguiente que recuerdas es levantarte en medio de la oscuridad, con frío...")
 
 empezar_g = input("¿Desea continuar? (N/S): ").upper()
-mochilaOp = False   #* Declarando mochilaOp falso para más adelante alterar el diálogo de acuerdo a una opción elegida *#
+mochilaOp = False   # Declarando mochilaOp falso para más adelante alterar el diálogo y eventos de acuerdo a una opción elegida
+
 if empezar_g != 'S':
     print("El frio te inmoviliza, hiela tus piernas y esperas el final con una última vista a la oscuridad")
     dibujarMonstro()
@@ -104,13 +109,15 @@ if empezar_g != 'S':
 else:
     elecc = elecciones("Ver alrededor", "Observarte", "Hay algo sobre mi espalda...")
     inv = 0
-    while elecc != "A" and elecc != "B" and elecc != "C":
+    while elecc != "A" and elecc != "B" and elecc != "C":   # Mientras que elecc no sea A y B y C se seguirá requiriendo el input del usuario
         elecc = input("Elige una acción: ").upper()
-        inv += 1
+        inv += 1    # Necesario para la mecánica
         if inv == 3:
             elecc = eleccion_invalida(elecc)
     print("Tu elección fue:", elecc)
+    
     time.sleep(1)
+
     if elecc == "A":
         print("Miras a tu alrededor y solo vez oscuridad.\n"
               "El suelo en donde caíste era duro y accidentado.")
@@ -133,14 +140,13 @@ if mochilaOp:
     elecc = elecciones("Empezar a moverte", "Esconderte", "Buscar dentro de la mochila")
 else:
     elecc = elecciones("Empezar a moverte", "Esconderte", "Tratar de salir del hoyo")
-
 inv = 0
 while elecc != "A" and elecc != "B" and elecc != "C":
     elecc = input("Elige una acción: ").upper()
     inv += 1
     if inv == 3:
         elecc = eleccion_invalida(elecc)
-time.sleep(1)
+
 print("Tu elección fue:", elecc)
 time.sleep(1)
 
@@ -168,7 +174,6 @@ elif elecc == "B":
         sys.exit()
     else:
         print("El silencio continua hasta que es roto por un rugido distante.\nLo que sea que te halla escuchado, se ha ido.")
-
 elif elecc == "C" and mochilaOp == False:
     print("Quieres salir del hoyo con tus propias manos pero resbalas por la superficie lisa y caes de nuevo")
     time.sleep(1)
@@ -188,8 +193,10 @@ while elecc != "A" and elecc != "B" and elecc != "C":
         inv += 1
         if inv == 3:
             elecc = eleccion_invalida(elecc)
+
 print("Tu elección fue:", elecc)
 time.sleep(1)
+
 if elecc == "A":
         print("Las vendas cubren tus heridas pero no creo que halla sido un buen momento para esto.. Escuchas que los rugidos se acercan a ti")
         print("Tratas de correr, pero sientes un mordisco en la pierna y otro en la espalda, gritas por ayuda..")
@@ -215,12 +222,12 @@ elif elecc == "B":
         else:
             print("Oyes distantes alaridos de dolor..")
             print("Te sientes aliviado de haberte desecho de esa criatura")
-        
 elif elecc == "C":
         print("Eres paciente y esperas a que se vayan los ruidos")
         print("Entonces después de unos minutos estas sumergido en un profundo y agradable silencio sin rugidos estremecedores")  
 
 print("\nAhora sería un buen momento para encontrar una salida.\nPero ¿A dónde ir? Solo hay dos caminos disponibles y por uno de ellos se fue la criatura..")
+
 elecc = elecciones("Ir a la derecha", "Ir a la izquierda",0)
 inv = 0
 while elecc != "A" and elecc != "B":
@@ -228,9 +235,11 @@ while elecc != "A" and elecc != "B":
     inv += 1
     if inv == 3:
         elecc = eleccion_invalida(elecc)
+
 print("Tu elección fue:", elecc)
 time.sleep(1)
 chance = random.randint(0,1)
+
 if chance == 0:
     print("Empiezas a caminar por esa dirección pero te ves interrumpido al tropezar sobre algo")
     time.sleep(1)
@@ -253,8 +262,10 @@ while elecc != "A" and elecc != "B":
     inv += 1
     if inv == 3:
         elecc = eleccion_invalida(elecc)
+
 print("Tu elección fue:", elecc)
 time.sleep(1)
+
 if elecc == "A":
     print("Tomas tus ultimas fuerzas y corres lo más rápido posible hacia la salida..")
     time.sleep(3)
